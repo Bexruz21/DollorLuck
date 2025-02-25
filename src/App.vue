@@ -6,20 +6,11 @@ const user = ref(null);
 
 onMounted(async () => {
   if (window.Telegram?.WebApp) {
-    console.log("WebApp API доступен");
-    console.log("initDataUnsafe:", window.Telegram.WebApp.initDataUnsafe);
-
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
-    
     if (telegramUser) {
-      user.value = telegramUser; // Записываем данные
-      console.log("Получены данные пользователя:", telegramUser);
-      await checkOrRegisterUser(telegramUser); // Отправляем на сервер
-    } else {
-      console.warn("Данные о пользователе отсутствуют!");
+      user.value = telegramUser;
+      await checkOrRegisterUser(telegramUser);
     }
-  } else {
-    console.error("Telegram WebApp API недоступен!");
   }
 });
 
@@ -47,52 +38,19 @@ async function checkOrRegisterUser(user) {
 <template>
   <div v-if="user">
     <h1>ID: {{ user.id }}</h1>
-    <h2>Имя: {{ user.first_name }}</h2>
-    <h3>Фамилия: {{ user.last_name || "Нет данных" }}</h3>
-    <h3>Юзернейм: {{ user.username || "Нет данных" }}</h3>
+    <h1>Username: {{ user.username || "No data" }}</h1>
+    <h1>Firstname: {{ user.first_name || "No data" }}</h1>
+    <h1>Lastname: {{ user.last_name || "No data" }}</h1>
   </div>
   <div v-else>
-    <h1>Загрузка...</h1>
+    <h1>Loading...</h1>
   </div>
 
   <RouterView />
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      userId: "Неизвестно",
-    };
-  },
-  methods: {
-    getUserId() {
-      if (window.Telegram && window.Telegram.WebApp) {
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        if (user) {
-          this.userId = user.id;
-        } else {
-          this.userId = "Ошибка: нет данных";
-        }
-      } else {
-        this.userId = "Ошибка: Telegram WebApp не загружен";
-      }
-    },
-  },
-  mounted() {
-    this.getUserId();
-  }
-};
-</script>
-
-<template>
-  <div>
-    <h1>User ID: {{ userId }}</h1>
-  </div>
-</template> -->
-
 <style scoped>
-h1, h2, h3 {
+h1 {
   color: white;
 }
 </style>
