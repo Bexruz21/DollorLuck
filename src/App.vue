@@ -1,54 +1,54 @@
 <script setup>
-import { onMounted } from 'vue';
-import { RouterLink, RouterView } from 'vue-router'
+import { onMounted, ref } from 'vue';
+import { RouterView } from 'vue-router';
 
-onMounted(() => {
-  if (window.Telegram && window.Telegram.WebApp) {
-    const user = window.Telegram.WebApp.initDataUnsafe.user;
-    if (user) {
-      console.log("Пользователь:", user);
-      this.user = user;
+const user = ref(null); // Хранение данных пользователя
+
+onMounted(async () => {
+  if (window.Telegram?.WebApp) {
+    const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
+    if (telegramUser) {
+      user.value = telegramUser; // Обновляем состояние
+      await checkOrRegisterUser(telegramUser); // Отправляем на сервер
     } else {
       console.warn("Данные о пользователе недоступны");
     }
   } else {
     console.error("Telegram WebApp API недоступен");
   }
-}) 
-  
-
-
+});
 
 async function checkOrRegisterUser(user) {
-    try {
-        const response = await fetch("http://127.0.0.1:8000/api/user/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user),
-        });
+  try {
+    const response = await fetch("http://127.0.0.1:8000/api/user/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        telegram_id: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name || "",
+        username: user.username || "",
+      }),
+    });
 
-        const data = await response.json();
-        console.log("Пользователь:", data);
-        return data;
-    } catch (error) {
-        console.error("Ошибка:", error);
-    }
+    const data = await response.json();
+    console.log("Ответ сервера:", data);
+  } catch (error) {
+    console.error("Ошибка запроса:", error);
+  }
 }
-
-// Пример данных от Telegram Web App
-const telegramUser = {
-    telegram_id: 123456789,
-    first_name: "Иван",
-    last_name: "Иванов",
-    phone_number: "+998901234567",
-};
-
-onMounted(() => {
-  checkOrRegisterUser(telegramUser);
-})
-
 </script>
 
 <template>
+  <div v-if="user">
+    <h1>ID: {{ user.id }}</h1>
+    <h2>Имя: {{ user.first_name }}</h2>
+    <h3>Фамилия: {{ user.last_name || "Нет данных" }}</h3>
+    <h3>Юзернейм: {{ user.username || "Нет данных" }}</h3>
+  </div>
+  <div v-else>
+    <h1>Загрузка...</h1>
+  </div>
+
   <RouterView />
 </template>
