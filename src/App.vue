@@ -58,27 +58,32 @@ async function checkOrRegisterUser(user) {
   <RouterView />
 </template> -->
 
-<script setup>
-import { ref, onMounted } from 'vue';
-
-const userId = ref("Неизвестно");
-
-const getUserId = () => {
-  if (window.Telegram?.WebApp) {
-    const user = window.Telegram.WebApp.initDataUnsafe?.user;
-    if (user) {
-      userId.value = user.id;
-    } else {
-      userId.value = "Ошибка: нет данных";
-    }
-  } else {
-    userId.value = "Ошибка: Telegram WebApp не загружен";
+<script>
+export default {
+  data() {
+    return {
+      userId: "Неизвестно",
+    };
+  },
+  methods: {
+    getUserId() {
+      if (window.Telegram && window.Telegram.WebApp) {
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        if (user) {
+          this.userId = user.id;
+        } else {
+          this.userId = "Ошибка: нет данных";
+        }
+      } else {
+        this.userId = "Ошибка: Telegram WebApp не загружен";
+      }
+    },
+  },
+  mounted() {
+    // Автоматически загружаем user_id при открытии
+    this.getUserId();
   }
 };
-
-onMounted(() => {
-  getUserId();
-});
 </script>
 
 <template>
