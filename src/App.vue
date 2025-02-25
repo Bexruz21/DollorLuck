@@ -2,19 +2,24 @@
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
 
-const user = ref(null); // Хранение данных пользователя
+const user = ref(null);
 
 onMounted(async () => {
   if (window.Telegram?.WebApp) {
-    const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
+    console.log("WebApp API доступен");
+    console.log("initDataUnsafe:", window.Telegram.WebApp.initDataUnsafe);
+
+    const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
+    
     if (telegramUser) {
-      user.value = telegramUser; // Обновляем состояние
+      user.value = telegramUser; // Записываем данные
+      console.log("Получены данные пользователя:", telegramUser);
       await checkOrRegisterUser(telegramUser); // Отправляем на сервер
     } else {
-      console.warn("Данные о пользователе недоступны");
+      console.warn("Данные о пользователе отсутствуют!");
     }
   } else {
-    console.error("Telegram WebApp API недоступен");
+    console.error("Telegram WebApp API недоступен!");
   }
 });
 
