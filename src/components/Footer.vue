@@ -6,16 +6,28 @@
     <footer class="footer">
         <ul class="footer__list">
             <li class="footer__item">
-                <a class="footer__link">Ref</a>
+              <a class="footer__link">
+                <i class="fa-solid fa-user"></i>
+                <p>Ref</p>
+              </a>
             </li>
             <li class="footer__item">
-                <a class="footer__link">Lotto</a>
+                <a class="footer__link">
+                  <i class="fa-solid fa-ticket"></i>
+                  <p>Lotto</p>
+                </a>
             </li>
             <li class="footer__item">
-                <a class="footer__link">Leaders</a>
+                <a class="footer__link">
+                  <i class="fa-solid fa-trophy"></i>
+                  <p>Leaders</p>
+                </a>
             </li>
             <li class="footer__item">
-                <a class="footer__link">Profile</a>
+              <a class="footer__link">
+                <i class="fa-solid fa-user"></i>
+                <p>Profile</p>
+              </a>
             </li>
         </ul>
     </footer>
