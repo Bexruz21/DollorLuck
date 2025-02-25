@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
 
@@ -56,9 +56,9 @@ async function checkOrRegisterUser(user) {
   </div>
 
   <RouterView />
-</template> -->
+</template>
 
-<script>
+<!-- <script>
 export default {
   data() {
     return {
@@ -80,7 +80,6 @@ export default {
     },
   },
   mounted() {
-    // Автоматически загружаем user_id при открытии
     this.getUserId();
   }
 };
@@ -90,5 +89,11 @@ export default {
   <div>
     <h1>User ID: {{ userId }}</h1>
   </div>
-</template>
+</template> -->
+
+<style scoped>
+h1 {
+  color: white;
+}
+</style>
 
