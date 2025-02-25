@@ -92,7 +92,7 @@ export default {
 </template> -->
 
 <style scoped>
-h1 {
+h1, h2, h3 {
   color: white;
 }
 </style>
