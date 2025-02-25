@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
 
@@ -56,4 +56,34 @@ async function checkOrRegisterUser(user) {
   </div>
 
   <RouterView />
+</template> -->
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const userId = ref("Неизвестно");
+
+const getUserId = () => {
+  if (window.Telegram?.WebApp) {
+    const user = window.Telegram.WebApp.initDataUnsafe?.user;
+    if (user) {
+      userId.value = user.id;
+    } else {
+      userId.value = "Ошибка: нет данных";
+    }
+  } else {
+    userId.value = "Ошибка: Telegram WebApp не загружен";
+  }
+};
+
+onMounted(() => {
+  getUserId();
+});
+</script>
+
+<template>
+  <div>
+    <h1>User ID: {{ userId }}</h1>
+  </div>
 </template>
+
