@@ -39,6 +39,7 @@
   height: 60px;
   background-color: #333;
   opacity: 20%;
+  overflow: hidden;
 }
 .footer__list {
   width: 100%;
@@ -61,7 +62,7 @@
   text-decoration: none;
   padding: 10px;
   display: block;
-  transition: 0.3s all;
+  transition: 2.3s all;
   cursor: pointer;
 }
 .footer__item:hover {
