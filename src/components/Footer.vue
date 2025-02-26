@@ -24,10 +24,10 @@
                 </a>
             </li>
             <li class="footer__item">
-              <a class="footer__link">
+              <RouterLink class="footer__link" to="/profile">
                 <i class="fa-solid fa-user"></i>
                 <p>Profile</p>
-              </a>
+              </RouterLink>
             </li>
         </ul>
     </footer>
