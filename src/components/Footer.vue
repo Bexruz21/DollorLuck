@@ -75,11 +75,10 @@
   display: block;
   transition: 0.3s all;
   cursor: pointer;
-  &:hover {
-    background-color: red;
-  }
 }
-
+.footer__link:hover {
+  background-color: red;
+}
 .footer__link--active {
   background-color: #555;
 }
