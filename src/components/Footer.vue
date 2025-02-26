@@ -82,4 +82,10 @@
 .footer__link--active {
   background-color: #555;
 }
+.footer__item:hover {
+  background-color: red;
+}
+.footer__item:active {
+  background-color: red;
+}
 </style>
