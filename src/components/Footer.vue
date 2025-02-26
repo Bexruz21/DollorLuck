@@ -51,7 +51,6 @@
   flex: 1;
   text-align: center;
   align-items: center;
-  gap: 5px;
 }
 .footer__link {
   color: #fff;
@@ -61,7 +60,7 @@
   transition: 0.3s all;
   cursor: pointer;
 }
-.footer__link:hover {
+.footer__item:hover {
   background-color: #333;
 }
 </style>
