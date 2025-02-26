@@ -15,7 +15,8 @@ onMounted(async () => {
 });
 
 async function checkOrRegisterUser(user) {
-    const response = await fetch("https://93f9-37-110-210-138.ngrok-free.app/api/user/", {
+    const BASE_URL = "https://b711-95-214-210-132.ngrok-free.app"
+    const response = await fetch(`${BASE_URL}/api/user/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
