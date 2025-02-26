@@ -36,11 +36,13 @@
 <style scoped>
 .footer {
   width: 100%;
+  height: 60px;
   background-color: #333;
   opacity: 20%;
 }
 .footer__list {
   width: 100%;
+  height: 100%;
   list-style: none;
   margin: 0;
   padding: 0px 20px;
@@ -48,11 +50,13 @@
   justify-content: space-around;
 }
 .footer__item {
+  height: 100%;
   flex: 1;
   text-align: center;
   align-items: center;
 }
 .footer__link {
+  height: 100%;
   color: #fff;
   text-decoration: none;
   padding: 10px;
