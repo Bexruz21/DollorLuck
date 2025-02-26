@@ -6,9 +6,3 @@ import Footer from '../components/Footer.vue'
   <h1>Hello</h1>
   <Footer/>
 </template>
-
-<style scoped>
-* {
-  color: white;
-}
-</style>

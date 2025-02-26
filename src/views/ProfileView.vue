@@ -17,9 +17,3 @@ const user = inject("user");
   </div>
   <Footer/>
 </template>
-
-<style scoped>
-* {
-    color: white;
-}
-</style>

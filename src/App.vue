@@ -35,10 +35,3 @@ provide("user", user);
 <template>
   <RouterView />
 </template>
-
-<style scoped>
-h1 {
-  color: white;
-}
-</style>
-
