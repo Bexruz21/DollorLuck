@@ -66,6 +66,6 @@
   cursor: pointer;
 }
 .footer__item:hover {
-  background-color: #333;
+  background-color: #9b0000;
 }
 </style>
