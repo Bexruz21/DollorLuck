@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
 const user = ref(null);
@@ -29,19 +29,10 @@ async function checkOrRegisterUser(user) {
       }),
     });
 }
+provide("user", user);
 </script>
 
 <template>
-  <div v-if="user">
-    <h1>ID: {{ user.id }}</h1>
-    <h1>Username: {{ user.username || "No data" }}</h1>
-    <h1>Firstname: {{ user.first_name || "No data" }}</h1>
-    <h1>Lastname: {{ user.last_name || "No data" }}</h1>
-  </div>
-  <div v-else>
-    <h1>Loading...</h1>
-  </div>
-
   <RouterView />
 </template>
 
