@@ -15,23 +15,17 @@ onMounted(async () => {
 });
 
 async function checkOrRegisterUser(user) {
-  try {
     const response = await fetch("https://93f9-37-110-210-138.ngrok-free.app/api/user/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         telegram_id: user.id,
+        username: user.username,
         first_name: user.first_name,
         last_name: user.last_name || "",
         username: user.username || "",
       }),
     });
-
-    const data = await response.json();
-    console.log("Ответ сервера:", data);
-  } catch (error) {
-    console.error("Ошибка запроса:", error);
-  }
 }
 </script>
 
