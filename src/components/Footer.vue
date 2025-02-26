@@ -34,6 +34,12 @@
 </template>
 
 <style scoped>
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a:active {
+  background-color: transparent;
+}
 .footer {
   width: 100%;
   height: 60px;
@@ -62,16 +68,10 @@
   text-decoration: none;
   padding: 10px;
   display: block;
-  transition: 2.3s all;
+  transition: 0.3s all;
   cursor: pointer;
 }
-/* .footer__item:hover {
+.footer__item:hover {
   background-color: #9b0000;
-} */
-.footer__link:active {
-  background-color: green;
-}
-.footer__link:hover {
-  background-color: green;
 }
 </style>
