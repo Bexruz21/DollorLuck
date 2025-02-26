@@ -5,6 +5,7 @@ import { RouterView } from 'vue-router';
 const user = ref(null);
 
 onMounted(async () => {
+  window.Telegram.WebApp.expand();
   if (window.Telegram?.WebApp) {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (telegramUser) {
