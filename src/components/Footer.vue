@@ -65,7 +65,13 @@
   transition: 2.3s all;
   cursor: pointer;
 }
-.footer__item:hover {
+/* .footer__item:hover {
   background-color: #9b0000;
+} */
+.footer__link:active {
+  background-color: green;
+}
+.footer__link:hover {
+  background-color: green;
 }
 </style>
