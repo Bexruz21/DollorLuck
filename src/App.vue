@@ -30,11 +30,11 @@ async function checkOrRegisterUser(user) {
     let data = await response.json()
     return data
 }
-if (user) {
-  provide("user", user)
-}
+
+provide("user", user)
 </script>
 
 <template>
+  <p>{{ user.value }}</p>
   <RouterView />
 </template>
