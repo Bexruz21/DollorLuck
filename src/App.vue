@@ -37,8 +37,7 @@ provide("user", user)
 </script>
 
 <template>
-  <p>{{ user1.value }}</p>
+  <p>{{ user1.username }}</p>
   <p>{{ user1 }}</p>
-  <p>{{ user1.value.username }}</p>
   <RouterView />
 </template>
