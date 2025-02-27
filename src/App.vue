@@ -25,8 +25,8 @@ async function checkOrRegisterUser(user) {
         telegram_id: 26420175325,
         username: "bekijan",
         first_name: "hudududu",
-        last_name: user.last_name || "",
-        username: user.username || "",
+        last_name: "fhisdhfdsf" || "",
+        username: "fdsfdsfdsf" || "",
       }),
     });
     console.log(response)
