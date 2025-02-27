@@ -22,13 +22,14 @@ async function checkOrRegisterUser(user) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        telegram_id: user.id,
-        username: user.username,
-        first_name: user.first_name,
+        telegram_id: 26420175325,
+        username: "bekijan",
+        first_name: "hudududu",
         last_name: user.last_name || "",
         username: user.username || "",
       }),
     });
+    console.log(response)
     return await response.json()
 }
 </script>
