@@ -3,6 +3,7 @@ import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
 const user = ref(null);
+const user1 = ref(null)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();
@@ -10,6 +11,7 @@ onMounted(async () => {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
+      user1.value = telegramUser
     }
   }
 });
@@ -35,6 +37,8 @@ provide("user", user)
 </script>
 
 <template>
-  <p>{{ user.value }}</p>
+  <p>{{ user1.value }}</p>
+  <p>{{ user1 }}</p>
+  <p>{{ user1.value.username }}</p>
   <RouterView />
 </template>
