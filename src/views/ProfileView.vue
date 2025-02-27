@@ -26,4 +26,11 @@ const user = inject("user");
     width: 100%;
     padding: 20px;
 }
+p {
+    user-select: none; /* Отключает выделение текста */
+  -webkit-user-select: none; /* Для Safari */
+  -moz-user-select: none; /* Для Firefox */
+  -ms-user-select: none; /* Для IE */
+  -webkit-touch-callout: none;
+}
 </style>
