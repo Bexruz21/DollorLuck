@@ -1,4 +1,5 @@
 <script setup>
+import Footer from '../components/Footer.vue'
 import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
@@ -36,4 +37,5 @@ provide("user", user)
 
 <template>
   <RouterView />
+  <Footer />
 </template>

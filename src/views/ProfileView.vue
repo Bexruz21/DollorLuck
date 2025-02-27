@@ -1,5 +1,4 @@
 <script setup>
-import Footer from '../components/Footer.vue'
 import { inject } from 'vue';
 
 const user = inject("user");
@@ -20,7 +19,6 @@ const user = inject("user");
             <h1>Загрузка...</h1>
         </div>
     </div>
-    <Footer />
 </template>
 
 <style scoped>
