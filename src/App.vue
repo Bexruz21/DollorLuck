@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
+import axios from 'axios';
 
 const user = ref(null);
 
@@ -9,25 +10,21 @@ onMounted(async () => {
   if (window.Telegram?.WebApp) {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (telegramUser) {
-      user.value = telegramUser;
-      await checkOrRegisterUser(telegramUser);
+      user.value = await checkOrRegisterUser(telegramUser);
     }
   }
 });
 
-async function checkOrRegisterUser(user) {
+async function checkOrRegisterUser(telegramUser) {
     const BASE_URL = "https://b711-95-214-210-132.ngrok-free.app"
-    const response = await fetch(`${BASE_URL}/api/user/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        telegram_id: user.id,
-        username: user.username,
-        first_name: user.first_name,
-        last_name: user.last_name || "",
-        username: user.username || "",
-      }),
+    const response = await axios.post(`${BASE_URL}/api/user/`, {
+      telegram_id: telegramUser.id,
+      username: telegramUser.username || "",
+      first_name: telegramUser.first_name,
+      last_name: telegramUser.last_name || "",
     });
+
+    return response.data; // Возвращаем данные пользователя
 }
 provide("user", user);
 </script>

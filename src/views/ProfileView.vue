@@ -12,7 +12,9 @@ const user = inject("user");
             <p>Username: {{ user.username || "No data" }}</p>
             <p>Firstname: {{ user.first_name || "No data" }}</p>
             <p>Lastname: {{ user.last_name || "No data" }}</p>
-            <p>Balance: 0</p>
+            <p>Balance: {{ user.balance }}</p>
+            <p>Victories: {{ user.victories }}</p>
+            <p>Refferel_code: {{ user.referral_code }}</p>
         </div>
         <div v-else>
             <h1>Loading...</h1>
