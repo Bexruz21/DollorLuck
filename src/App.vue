@@ -4,9 +4,12 @@ import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
 const user = ref(null);
+const ref_code = ref(null);
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();
+  const urlParams = new URLSearchParams(window.location.search);
+  ref_code.value = urlParams.get('start');
   if (window.Telegram?.WebApp) {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (telegramUser) {
@@ -26,6 +29,7 @@ async function checkOrRegisterUser(user) {
         first_name: user.first_name,
         last_name: user.last_name || "",
         username: user.username || "",
+        ref_code: ref_code
       }),
     });
     let data = await response.json()
@@ -36,6 +40,7 @@ provide("user", user)
 </script>
 
 <template>
+  <p>{{ ref_code }}</p>
   <RouterView />
   <Footer />
 </template>
