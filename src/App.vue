@@ -28,7 +28,7 @@ async function checkOrRegisterUser(user) {
         username: user.username || "",
       }),
     });
-    return response
+    return await response.json()
 }
 if (user) {
   provide("user", user);
