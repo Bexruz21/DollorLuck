@@ -10,6 +10,7 @@ onMounted(async () => {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
+      provide("user", user); // Добавляем provide ПРАВИЛЬНО
     }
   }
 });
@@ -29,9 +30,6 @@ async function checkOrRegisterUser(user) {
       }),
     });
     return await response.json()
-}
-if (user) {
-  provide("user", user);
 }
 </script>
 
