@@ -15,7 +15,7 @@ onMounted(async () => {
 });
 
 async function checkOrRegisterUser(user) {
-    const BASE_URL = "https://b711-95-214-210-132.ngrok-free.app"
+    const BASE_URL = "https://cbb0-195-158-2-216.ngrok-free.app"
 
     const response = await fetch(`${BASE_URL}/api/user/`, {
       method: "POST",
@@ -30,7 +30,9 @@ async function checkOrRegisterUser(user) {
     });
     return response
 }
-provide("user", user);
+if (user) {
+  provide("user", user);
+}
 </script>
 
 <template>
