@@ -4,11 +4,13 @@ import { inject } from 'vue';
 
 const user = inject("user");
 console.log(user)
+alert(user[0])
 </script>
 
 <template>
     <div class="profile">
         <div v-if="user">
+            <p>{{ user }}</p>
             <p>ID: {{ user.id }}</p>
             <p>Username: {{ user.username || "No data" }}</p>
             <p>Firstname: {{ user.first_name || "No data" }}</p>
