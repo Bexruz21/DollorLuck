@@ -3,6 +3,7 @@ import Footer from '../components/Footer.vue'
 import { inject } from 'vue';
 
 const user = inject("user");
+console.log(user)
 </script>
 
 <template>

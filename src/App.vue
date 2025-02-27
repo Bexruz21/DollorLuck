@@ -10,7 +10,6 @@ onMounted(async () => {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
     if (!telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      provide("user", user); // Добавляем provide ПРАВИЛЬНО
     }
   }
 });
@@ -22,16 +21,16 @@ async function checkOrRegisterUser(user) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        telegram_id: 26420175325,
-        username: "bekijan",
-        first_name: "hudududu",
-        last_name: "fhisdhfdsf" || "",
-        username: "fdsfdsfdsf" || "",
+        telegram_id: user.telegram_id,
+        first_name: user.first_name,
+        last_name: user.last_name || "",
+        username: user.username || "",
       }),
     });
-    console.log(response)
-    return await response.json()
+    let data = await response.json()
+    return data
 }
+provide("user", user)
 </script>
 
 <template>
