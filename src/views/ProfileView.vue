@@ -27,10 +27,10 @@ const user = inject("user");
     padding: 20px;
 }
 p {
-    user-select: none; /* Отключает выделение текста */
-  -webkit-user-select: none; /* Для Safari */
-  -moz-user-select: none; /* Для Firefox */
-  -ms-user-select: none; /* Для IE */
-  -webkit-touch-callout: none;
+    user-select:all; /* Отключает выделение текста */
+  -webkit-user-select: all; /* Для Safari */
+  -moz-user-select: all; /* Для Firefox */
+  -ms-user-select: all; /* Для IE */
+  -webkit-touch-callout: all;
 }
 </style>
