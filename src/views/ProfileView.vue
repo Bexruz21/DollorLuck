@@ -8,7 +8,6 @@ const user = inject("user");
 <template>
     <div class="profile">
         <div v-if="user">
-            <p>{{ user }}</p>
             <p>ID: {{ user.id }}</p>
             <p>Username: {{ user.username || " " }}</p>
             <p>Имя: {{ user.first_name || " " }}</p>
