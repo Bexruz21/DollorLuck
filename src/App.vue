@@ -30,7 +30,9 @@ async function checkOrRegisterUser(user) {
     let data = await response.json()
     return data
 }
-provide("user", user)
+if (user) {
+  provide("user", user)
+}
 </script>
 
 <template>
