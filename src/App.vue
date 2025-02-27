@@ -16,7 +16,7 @@ onMounted(async () => {
 });
 
 async function checkOrRegisterUser(telegramUser) {
-    const BASE_URL = "https://b711-95-214-210-132.ngrok-free.app"
+    const BASE_URL = "https://cbb0-195-158-2-216.ngrok-free.app"
     const response = await axios.post(`${BASE_URL}/api/user/`, {
       telegram_id: telegramUser.id,
       username: telegramUser.username || "",
