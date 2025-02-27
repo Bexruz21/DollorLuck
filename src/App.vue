@@ -8,7 +8,7 @@ onMounted(async () => {
   window.Telegram.WebApp.expand();
   if (window.Telegram?.WebApp) {
     const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
-    if (telegramUser) {
+    if (!telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       provide("user", user); // Добавляем provide ПРАВИЛЬНО
     }
