@@ -5,9 +5,12 @@ import { RouterView } from 'vue-router';
 
 const user = ref(null);
 const refCode = ref(null)
+const code = ref(null)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();
+  const urlParams = new URLSearchParams(window.location.search);
+  code.value = urlParams.get("ref") || "null"; // Берем ref из URL
   if (window.Telegram?.WebApp) {
     const tg = window.Telegram.WebApp;
     const telegramUser = tg.initDataUnsafe?.user;
@@ -40,6 +43,7 @@ provide("user", user)
 
 <template>
   <p>{{ refCode }}</p>
+  <p>{{ code }}</p>
   <RouterView />
   <Footer />
 </template>
