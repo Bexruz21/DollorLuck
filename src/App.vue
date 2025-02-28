@@ -35,7 +35,6 @@ async function checkOrRegisterUser(user) {
       }),
     });
     let data = await response.json()
-    alert(JSON.stringify(data))
     return data
 }
 
