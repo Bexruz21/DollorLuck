@@ -13,7 +13,7 @@ onMounted(async () => {
     const telegramUser = tg.initDataUnsafe?.user;
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      refCode.value = tg.initDataUnsafe?.start_param || "null";
+      refCode.value = tg.initDataUnsafe?.start_param || null;
     }
   }
 });
