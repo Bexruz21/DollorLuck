@@ -4,13 +4,16 @@ import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
 const user = ref(null);
+const refCode = ref(null)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();
   if (window.Telegram?.WebApp) {
-    const telegramUser = window.Telegram.WebApp.initDataUnsafe?.user;
+    const tg = window.Telegram.WebApp;
+    const telegramUser = tg.initDataUnsafe?.user;
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
+      refCode.value = tg.initDataUnsafe?.start_param || null;
     }
   }
 });
@@ -36,6 +39,7 @@ provide("user", user)
 </script>
 
 <template>
+  <p>{{ refCode }}</p>
   <RouterView />
   <Footer />
 </template>
