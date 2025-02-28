@@ -5,27 +5,20 @@ import { RouterView } from 'vue-router';
 
 const user = ref(null);
 const refCode = ref(null)
-const code = ref(null)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();  
   if (window.Telegram?.WebApp) {
     const tg = window.Telegram.WebApp;
     const telegramUser = tg.initDataUnsafe?.user;
-
     const urlParams = new URLSearchParams(window.location.search);
-    code.value = urlParams.get("ref") || "null";
 
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      refCode.value = tg.initDataUnsafe?.start_param;
-      alert(JSON.stringify(refCode))
+      refCode.value = urlParams.get("start") || "null";
     }
   }
 });
-alert(JSON.stringify(refCode[0]))
-alert(JSON.stringify(refCode))
-alert(refCode)
 
 async function checkOrRegisterUser(user) {
     const BASE_URL = "https://0ff5-95-214-211-48.ngrok-free.app"
@@ -48,7 +41,6 @@ provide("user", user)
 
 <template>
   <p>{{ refCode }}</p>
-  <p>{{ code }}</p>
   <RouterView />
   <Footer />
 </template>
