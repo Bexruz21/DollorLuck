@@ -18,6 +18,7 @@ onMounted(async () => {
       user.value = await checkOrRegisterUser(telegramUser);
       refCode.value = tg.initDataUnsafe?.start_param;
       console.log(refCode)
+      alert(refCode)
     }
   }
 });
