@@ -13,7 +13,7 @@ const user = inject("user");
             <p>Фамилия: {{ user.last_name || " " }}</p>
             <p>Баланс: {{ user.balance }}</p>
             <p>Победы: {{ user.victories }}</p>
-            <p>Реферальная ссылка: "https://t.me/dollarluck_bot?start={{ user.referral_code }}"</p>
+            <a>Реферальная ссылка: <b>https://t.me/dollarluck_bot/startattach?start={{ user.referral_code }}</b></a>
         </div>
         <div v-else>
             <h1>Загрузка...</h1>
