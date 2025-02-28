@@ -1,7 +1,9 @@
 <script setup>
 import { inject } from 'vue';
+import { useRouter } from 'vue-router';
 
 const user = inject("user");
+const router = useRouter();
 
 const copyToClipboard = (ref_code) => {
     const inviteLink = `https://t.me/dollarluck_bot?start=${ref_code}`;
@@ -9,7 +11,7 @@ const copyToClipboard = (ref_code) => {
 };
 
 if (!user.value) {
-    router.push("/");
+    router.replace("/");
 }
 </script>
 
