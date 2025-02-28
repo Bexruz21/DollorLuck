@@ -119,6 +119,7 @@ provide("user", user)
 
 .button-87 {
   margin: 10px;
+  width: 200px;
   padding: 15px 30px;
   text-align: center;
   text-transform: uppercase;
@@ -128,6 +129,7 @@ provide("user", user)
   border-radius: 10px;
   display: block;
   border: 0px;
+  font-size: 16px;
   font-weight: 700;
   box-shadow: 0px 0px 14px -7px #f09819;
   background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
@@ -153,6 +155,7 @@ provide("user", user)
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
+  width: 200px;
   color: #FFFFFF;
   cursor: pointer;
   flex-shrink: 0;
@@ -160,7 +163,7 @@ provide("user", user)
   font-size: 16px;
   font-weight: 500;
   height: 4rem;
-  padding: 0 1.6rem;
+  padding: 15px 30px;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
   transition: all .5s;
