@@ -16,7 +16,8 @@ onMounted(async () => {
     code.value = urlParams.get("ref") || "null";
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      refCode.value = tg.initDataUnsafe?.start_param || urlParams.get("start") || "null";
+      refCode.value = tg.initDataUnsafe?.start_param;
+      console.log(refCode)
     }
   }
 });
