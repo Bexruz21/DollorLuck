@@ -1,17 +1,13 @@
 <script setup>
 import Footer from './components/Footer.vue'
 import { onMounted, ref, provide } from 'vue';
-import { RouterView, useRouter } from 'vue-router';
+import { RouterView } from 'vue-router';
 
 const user = ref(null);
 const ref_code = ref(null)
 const isLoaded = ref(false)
-const router = useRouter()
 
 onMounted(async () => {
-  if (!window.location.hash || window.location.hash === "#/") {
-    router.replace("/");
-  }
   window.Telegram.WebApp.expand();  
   if (window.Telegram?.WebApp) {
     const tg = window.Telegram.WebApp;
