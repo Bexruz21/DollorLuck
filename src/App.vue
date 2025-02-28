@@ -19,7 +19,7 @@ onMounted(async () => {
     }
   }
 });
-alert(JSON.stringify(ref_code.value))
+
 async function checkOrRegisterUser(user) {
     const BASE_URL = "https://b588-37-110-214-26.ngrok-free.app"
 
@@ -35,13 +35,14 @@ async function checkOrRegisterUser(user) {
       }),
     });
     let data = await response.json()
+    alert(JSON.stringify(data))
     return data
 }
+
 provide("user", user)
 </script>
 
 <template>
-  <p>{{ ref_code }}</p>
   <RouterView />
   <Footer />
 </template>
