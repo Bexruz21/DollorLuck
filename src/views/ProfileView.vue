@@ -13,7 +13,13 @@ const user = inject("user");
             <p>Фамилия: {{ user.last_name || " " }}</p>
             <p>Баланс: {{ user.balance }}</p>
             <p>Победы: {{ user.victories }}</p>
-            <p>Рефераль: {{ user.referrer }}</p>
+            <p>Ваш Рефераль: {{ user.referrer }}</p>
+            <ul v-if="user.referrals.length">
+                <li v-for="ref in user.referrals" :key="ref.telegram_id">
+                    Имя: {{ ref.first_name }} (ID: {{ ref.telegram_id }})
+                </li>
+            </ul>
+            <p v-else>У вас пока нет рефералов.</p>
             <a>Реферальная ссылка: <b>https://t.me/dollarluck_bot?start={{ user.referral_code }}</b></a>
         </div>
         <div v-else>
@@ -27,11 +33,18 @@ const user = inject("user");
     width: 100%;
     padding: 20px;
 }
-p, a, b {
-   user-select:all; /* Отключает выделение текста */
-  -webkit-user-select: all; /* Для Safari */
-  -moz-user-select: all; /* Для Firefox */
-  -ms-user-select: all; /* Для IE */
-  -webkit-touch-callout: all;
+
+p,
+a,
+b {
+    user-select: all;
+    /* Отключает выделение текста */
+    -webkit-user-select: all;
+    /* Для Safari */
+    -moz-user-select: all;
+    /* Для Firefox */
+    -ms-user-select: all;
+    /* Для IE */
+    -webkit-touch-callout: all;
 }
 </style>
