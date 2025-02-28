@@ -3,10 +3,11 @@ import { inject } from 'vue';
 
 const user = inject("user");
 
-const copyToClipboard = () => {
-    const inviteLink = `https://t.me/dollarluck_bot?start=${user.referral_code}`;
+const copyToClipboard = (ref_code) => {
+    const inviteLink = `https://t.me/dollarluck_bot?start=${ref_code}`;
     navigator.clipboard.writeText(inviteLink)
 };
+
 </script>
 
 <template>
@@ -30,7 +31,7 @@ const copyToClipboard = () => {
                     <p class="invite-text">My invite link:</p>
                     <p class="invite-link">https://t.me/dollarluck_bot?start={{ user.referral_code }}</p>
                 </div>
-                <button class="copy-button" @click="copyToClipboard">Copy</button>
+                <button class="copy-button" @click="copyToClipboard(user.referral_code)">Copy</button>
             </div>
         </div>
         <div v-else>
