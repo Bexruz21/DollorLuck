@@ -12,30 +12,25 @@ const copyToClipboard = (ref_code) => {
 
 <template>
     <div class="profile">
-        <div v-if="user">
-            <p>ID: {{ user.id }}</p>
-            <p>Username: {{ user.username || " " }}</p>
-            <p>Имя: {{ user.first_name || " " }}</p>
-            <p>Фамилия: {{ user.last_name || " " }}</p>
-            <p>Баланс: {{ user.balance }}</p>
-            <p>Победы: {{ user.victories }}</p>
-            <p>Ваш Рефераль: {{ user.referrer }}</p>
-            <ul v-if="user.referrals.length">
-                <li v-for="ref in user.referrals" :key="ref.telegram_id">
-                    Имя: {{ ref.first_name }} (ID: {{ ref.telegram_id }})
-                </li>
-            </ul>
-            <p v-else>У вас пока нет рефералов.</p>
-            <div class="invite-container">
-                <div>
-                    <p class="invite-text">My invite link:</p>
-                    <p class="invite-link">https://t.me/dollarluck_bot?start={{ user.referral_code }}</p>
-                </div>
-                <button class="copy-button" @click="copyToClipboard(user.referral_code)">Copy</button>
+        <p>ID: {{ user.id }}</p>
+        <p>Username: {{ user.username || " " }}</p>
+        <p>Имя: {{ user.first_name || " " }}</p>
+        <p>Фамилия: {{ user.last_name || " " }}</p>
+        <p>Баланс: {{ user.balance }}</p>
+        <p>Победы: {{ user.victories }}</p>
+        <p>Ваш Рефераль: {{ user.referrer }}</p>
+        <ul v-if="user.referrals.length">
+            <li v-for="ref in user.referrals" :key="ref.telegram_id">
+                Имя: {{ ref.first_name }} (ID: {{ ref.telegram_id }})
+            </li>
+        </ul>
+        <p v-else>У вас пока нет рефералов.</p>
+        <div class="invite-container">
+            <div>
+                <p class="invite-text">My invite link:</p>
+                <p class="invite-link">https://t.me/dollarluck_bot?start={{ user.referral_code }}</p>
             </div>
-        </div>
-        <div v-else>
-            <h1>Загрузка...</h1>
+            <button class="copy-button" @click="copyToClipboard(user.referral_code)">Copy</button>
         </div>
     </div>
 </template>
@@ -48,10 +43,12 @@ const copyToClipboard = (ref_code) => {
     -ms-user-select: auto;
     -webkit-touch-callout: auto;
 }
+
 .profile {
     width: 100%;
     padding: 20px;
 }
+
 .invite-container {
     background-color: #2f2f5f;
     color: white;
@@ -61,10 +58,12 @@ const copyToClipboard = (ref_code) => {
     align-items: center;
     gap: 16px;
 }
+
 .invite-text {
     font-size: 1.125rem;
     font-weight: bold;
 }
+
 .copy-button {
     background-color: #5a5a9f;
     color: white;

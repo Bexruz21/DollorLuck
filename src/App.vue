@@ -5,6 +5,7 @@ import { RouterView } from 'vue-router';
 
 const user = ref(null);
 const ref_code = ref(null)
+const isLoaded = ref(false)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();  
@@ -18,6 +19,7 @@ onMounted(async () => {
       user.value = await checkOrRegisterUser(telegramUser);
     }
   }
+  isLoaded.value = true
 });
 
 async function checkOrRegisterUser(user) {
@@ -39,9 +41,24 @@ async function checkOrRegisterUser(user) {
 }
 
 provide("user", user)
+
 </script>
 
 <template>
-  <RouterView />
-  <Footer />
+  <div v-if="isLoaded">
+    <RouterView />
+    <Footer />
+  </div>
+  <div class="loading" v-else>
+    <h1>Loading...</h1>
+  </div>
 </template>
+
+<style scoped>
+.loading {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
