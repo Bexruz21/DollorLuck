@@ -12,9 +12,9 @@ onMounted(async () => {
     const tg = window.Telegram.WebApp;
     const telegramUser = tg.initDataUnsafe?.user;
     const urlParams = new URLSearchParams(window.location.search);
+    ref_code.value = urlParams.get("ref") || "null";
 
     if (telegramUser) {
-      ref_code.value = urlParams.get("start") || "null";
       user.value = await checkOrRegisterUser(telegramUser);
     }
   }
