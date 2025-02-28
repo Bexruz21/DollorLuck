@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory  } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 
@@ -15,6 +15,7 @@ const router = createRouter({
       name: 'profile',
       component: ProfileView,
     },
+    { path: '/:pathMatch(.*)*', redirect: '/' }
   ],
 })
 
