@@ -8,12 +8,12 @@ const refCode = ref(null)
 const code = ref(null)
 
 onMounted(async () => {
-  window.Telegram.WebApp.expand();
-  const urlParams = new URLSearchParams(window.location.search);
-  code.value = urlParams.get("ref") || "null"; // Берем ref из URL
+  window.Telegram.WebApp.expand();  
   if (window.Telegram?.WebApp) {
     const tg = window.Telegram.WebApp;
     const telegramUser = tg.initDataUnsafe?.user;
+    const urlParams = new URLSearchParams(window.location.search);
+    code.value = urlParams.get("ref") || "null";
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       refCode.value = tg.initDataUnsafe?.start_param || null;
