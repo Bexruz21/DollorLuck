@@ -19,10 +19,12 @@ onMounted(async () => {
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       refCode.value = tg.initDataUnsafe?.start_param;
-      alert(refCode)
+      alert(JSON.stringify(refCode))
     }
   }
 });
+alert(JSON.stringify(refCode[0]))
+alert(JSON.stringify(refCode))
 alert(refCode)
 
 async function checkOrRegisterUser(user) {
