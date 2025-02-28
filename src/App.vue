@@ -19,7 +19,7 @@ onMounted(async () => {
     }
   }
 });
-alert(JSON.stringify(ref_code))
+alert(JSON.stringify(ref_code.value))
 async function checkOrRegisterUser(user) {
     const BASE_URL = "https://b588-37-110-214-26.ngrok-free.app"
 
@@ -31,7 +31,7 @@ async function checkOrRegisterUser(user) {
         first_name: user.first_name,
         last_name: user.last_name || "",
         username: user.username || "",
-        ref_code: ref_code
+        ref_code: ref_code.value
       }),
     });
     let data = await response.json()
