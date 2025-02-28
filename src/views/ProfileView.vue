@@ -27,7 +27,7 @@ const user = inject("user");
     padding: 20px;
 }
 p {
-    user-select:all; /* Отключает выделение текста */
+   user-select:all; /* Отключает выделение текста */
   -webkit-user-select: all; /* Для Safari */
   -moz-user-select: all; /* Для Firefox */
   -ms-user-select: all; /* Для IE */
