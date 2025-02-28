@@ -21,7 +21,7 @@ onMounted(async () => {
     }
   }
 });
-
+console.log(refCode)
 async function checkOrRegisterUser(user) {
     const BASE_URL = "https://0ff5-95-214-211-48.ngrok-free.app"
 
@@ -38,7 +38,8 @@ async function checkOrRegisterUser(user) {
     let data = await response.json()
     return data
 }
-
+console.log(refCode)
+console.log('fdsfds')
 provide("user", user)
 </script>
 
