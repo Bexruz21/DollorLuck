@@ -14,8 +14,8 @@ onMounted(async () => {
     const urlParams = new URLSearchParams(window.location.search);
 
     if (telegramUser) {
-      user.value = await checkOrRegisterUser(telegramUser);
       ref_code.value = urlParams.get("start") || "null";
+      user.value = await checkOrRegisterUser(telegramUser);
     }
   }
 });
