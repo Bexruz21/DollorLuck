@@ -8,6 +8,9 @@ const copyToClipboard = (ref_code) => {
     navigator.clipboard.writeText(inviteLink)
 };
 
+if (!user.value) {
+    router.push("/");
+}
 </script>
 
 <template>

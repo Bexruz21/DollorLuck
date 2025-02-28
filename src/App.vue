@@ -40,10 +40,6 @@ async function checkOrRegisterUser(user) {
     return data
 }
 
-if (!user.value) {
-    router.push("/");
-  }
-
 provide("user", user)
 
 </script>
