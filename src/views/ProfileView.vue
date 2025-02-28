@@ -21,6 +21,14 @@ const user = inject("user");
             </ul>
             <p v-else>У вас пока нет рефералов.</p>
             <a>Реферальная ссылка: <b>https://t.me/dollarluck_bot?start={{ user.referral_code }}</b></a>
+            <div class="invite-container">
+                <div>
+                    <p class="invite-text">My invite link:</p>
+                    <p class="invite-link">https://t.me/dollarluck_bot?start={{ user.referral_code }} <span class="gift-icon"><i
+                                class="fas fa-gift"></i></span></p>
+                </div>
+                <button class="copy-button">Copy</button>
+            </div>
         </div>
         <div v-else>
             <h1>Загрузка...</h1>
@@ -46,5 +54,34 @@ b {
     -ms-user-select: all;
     /* Для IE */
     -webkit-touch-callout: all;
+}
+
+.invite-container {
+    background-color: #2f2f5f;
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.invite-text {
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.gift-icon {
+    color: #ffcc00;
+}
+
+.copy-button {
+    background-color: #5a5a9f;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
 }
 </style>
