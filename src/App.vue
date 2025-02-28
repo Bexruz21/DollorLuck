@@ -4,7 +4,7 @@ import { onMounted, ref, provide } from 'vue';
 import { RouterView } from 'vue-router';
 
 const user = ref(null);
-const refCode = ref(null)
+const ref_code = ref(null)
 
 onMounted(async () => {
   window.Telegram.WebApp.expand();  
@@ -15,7 +15,7 @@ onMounted(async () => {
 
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      refCode.value = urlParams.get("start") || "null";
+      ref_code.value = urlParams.get("start") || "null";
     }
   }
 });
@@ -31,6 +31,7 @@ async function checkOrRegisterUser(user) {
         first_name: user.first_name,
         last_name: user.last_name || "",
         username: user.username || "",
+        ref_code: ref_code
       }),
     });
     let data = await response.json()
