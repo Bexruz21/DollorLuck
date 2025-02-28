@@ -62,7 +62,7 @@ provide("user", user)
         <h1>Choice your role</h1>
         <div class="admin__buttons">
           <button class="button-87" role="button">Admin</button>
-          <button class="buttom-36" role="button">Gamer</button>
+          <button class="button-36" role="button">Gamer</button>
         </div>
       </div>
     </template>
@@ -102,6 +102,7 @@ provide("user", user)
   background: linear-gradient(to right, #000000, #272727);
   min-height: 100vh;
   display: flex;
+  gap: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -110,7 +111,7 @@ provide("user", user)
 .admin__buttons {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
