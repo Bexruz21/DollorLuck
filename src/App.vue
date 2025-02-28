@@ -45,10 +45,10 @@ provide("user", user)
 </script>
 
 <template>
-  <div v-if="isLoaded">
+  <template v-if="isLoaded">
     <RouterView />
     <Footer />
-  </div>
+  </template>
   <div class="loading" v-else>
     <h1>Loading...</h1>
   </div>
@@ -57,6 +57,7 @@ provide("user", user)
 <style scoped>
 .loading {
   background-color: black;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
