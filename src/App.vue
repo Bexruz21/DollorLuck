@@ -18,7 +18,8 @@ onMounted(async () => {
 
     if (telegramUser) {
       alert("1")
-      user.value = await checkOrRegisterUser(telegramUser);
+      alert(telegramUser.id)
+      alert(typeof telegramUser.id)
       if (String(telegramUser.id) === "1173081114") {
         alert("2")
         setTimeout(() => {
@@ -28,6 +29,8 @@ onMounted(async () => {
       }
     }
   }
+
+  user.value = await checkOrRegisterUser(telegramUser);
   isLoaded.value = true
 });
 
