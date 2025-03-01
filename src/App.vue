@@ -19,7 +19,9 @@ onMounted(async () => {
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       if (user.id == 1173081114) {
-        isOwner.value = true
+        setTimeout(() => {
+          isOwner.value = true
+        }, 5000)
       }
     }
   }
@@ -61,8 +63,8 @@ provide("user", user)
       <div class="admin">
         <h1>Choice your role</h1>
         <div class="admin__buttons">
-          <button class="button-87" role="button">Admin</button>
-          <button class="button-36" role="button">Gamer</button>
+          <button class="admin__button" role="button">Admin</button>
+          <button class="admin__button" role="button">Gamer</button>
         </div>
       </div>
     </template>
@@ -117,16 +119,15 @@ provide("user", user)
 }
 
 
-.button-87 {
+.admin__button {
   margin: 10px;
   width: 200px;
   padding: 15px 30px;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  border-radius: 10px;
+  border-radius: 2px;
   display: block;
   border: 0px;
   font-size: 16px;
@@ -139,50 +140,14 @@ provide("user", user)
   touch-action: manipulation;
 }
 
-.button-87:hover {
+.admin__button:hover {
   background-position: right center;
   color: #fff;
   text-decoration: none;
 }
-
-.button-87:active {
+.admin__button:active {
   transform: scale(0.95);
 }
-
-/* CSS */
-.button-36 {
-  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  width: 200px;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 4rem;
-  padding: 15px 30px;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all .5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-36:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: .1s;
-}
-
-@media (min-width: 768px) {
-  .button-36 {
-    padding: 0 2.6rem;
-  }
-}
-
 @keyframes l3 {
   to {
     transform: rotate(1turn)
