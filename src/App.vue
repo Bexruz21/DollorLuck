@@ -67,6 +67,11 @@ provide("user", user)
       <Footer />
     </template>
   </template>
+  <template v-else>
+    <div class="loading">
+      <div class="loader"></div>
+    </div>
+  </template>
 </template>
 
 
