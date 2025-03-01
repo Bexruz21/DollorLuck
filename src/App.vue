@@ -18,7 +18,7 @@ onMounted(async () => {
 
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
-      if (user.id == 1173081114) {
+      if (telegramUser.id == 1173081114) {
         setTimeout(() => {
           isOwner.value = true
           isLoaded.value = true
