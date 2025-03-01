@@ -19,9 +19,10 @@ onMounted(async () => {
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       if (user.id == 1173081114) {
-        // setTimeout(() => {
-        //   isOwner.value = true
-        // }, 5000)
+        setTimeout(() => {
+          isOwner.value = true
+          isLoaded = true
+        }, 5000)
       }
     }
   }
@@ -51,15 +52,8 @@ provide("user", user)
 </script>
 
 <template>
-  <template v-if="!isOwner">
-    <template v-if="isLoaded">
-      <RouterView />
-      <Footer />
-    </template>
-    <div class="loading" v-else>
-      <span class="loader"></span>
-    </div>
-    <template v-else>
+  <template v-if="isLoaded">
+    <template v-if="isOwner">
       <div class="admin">
         <h1>Choice your role</h1>
         <div class="admin__buttons">
@@ -68,8 +62,13 @@ provide("user", user)
         </div>
       </div>
     </template>
+    <template v-else>
+      <RouterView />
+      <Footer />
+    </template>
   </template>
 </template>
+
 
 <style scoped>
 .loading {
@@ -145,9 +144,11 @@ provide("user", user)
   color: #fff;
   text-decoration: none;
 }
+
 .admin__button:active {
   transform: scale(0.95);
 }
+
 @keyframes l3 {
   to {
     transform: rotate(1turn)
