@@ -19,9 +19,9 @@ onMounted(async () => {
     if (telegramUser) {
       user.value = await checkOrRegisterUser(telegramUser);
       if (user.id == 1173081114) {
-        setTimeout(() => {
-          isOwner.value = true
-        }, 5000)
+        // setTimeout(() => {
+        //   isOwner.value = true
+        // }, 5000)
       }
     }
   }
@@ -64,7 +64,7 @@ provide("user", user)
         <h1>Choice your role</h1>
         <div class="admin__buttons">
           <button class="admin__button" role="button">Admin</button>
-          <button class="admin__button" role="button">Gamer</button>
+          <button class="admin__button" role="button">User</button>
         </div>
       </div>
     </template>
