@@ -17,11 +17,7 @@ onMounted(async () => {
     ref_code.value = urlParams.get("ref") || "null";
 
     if (telegramUser) {
-      alert("1")
-      alert(telegramUser.id)
-      alert(typeof telegramUser.id)
       if (String(telegramUser.id) === "1173081114") {
-        alert("2")
         setTimeout(() => {
           isOwner.value = true
           isLoaded.value = true
