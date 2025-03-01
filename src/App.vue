@@ -17,9 +17,10 @@ onMounted(async () => {
     ref_code.value = urlParams.get("ref") || "null";
 
     if (telegramUser) {
-      alert(telegramUser.id)
+      alert("1")
       user.value = await checkOrRegisterUser(telegramUser);
-      if (telegramUser.id == 1173081114) {
+      if (String(telegramUser.id) === "1173081114") {
+        alert("2")
         setTimeout(() => {
           isOwner.value = true
           isLoaded.value = true
