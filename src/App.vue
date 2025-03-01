@@ -21,7 +21,7 @@ onMounted(async () => {
       if (user.id == 1173081114) {
         setTimeout(() => {
           isOwner.value = true
-          isLoaded = true
+          isLoaded.value = true
         }, 5000)
       }
     }
