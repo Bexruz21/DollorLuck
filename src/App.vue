@@ -1,7 +1,7 @@
 <script setup>
-import Footer from './components/Footer.vue'
 import { onMounted, ref, provide } from 'vue';
-import { RouterView } from 'vue-router';
+import AdminView from './views/AdminView.vue';
+import Footer from './components/Footer.vue';
 
 const user = ref(null);
 const ref_code = ref(null)
@@ -49,20 +49,11 @@ async function checkOrRegisterUser(user) {
 }
 
 provide("user", user)
-
 </script>
 
 <template>
   <template v-if="isLoaded">
-    <template v-if="isOwner">
-      <div class="admin">
-        <h1>Choice your role</h1>
-        <div class="admin__buttons">
-          <button class="admin__button" role="button">Admin</button>
-          <button class="admin__button" role="button">User</button>
-        </div>
-      </div>
-    </template>
+    <AdminView v-if="isOwner" />
     <template v-else>
       <RouterView />
       <Footer />
@@ -99,57 +90,6 @@ provide("user", user)
   -webkit-mask-composite: source-out;
   mask-composite: subtract;
   animation: loader 1s infinite linear;
-}
-
-.admin {
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #000000, #272727);
-  background: linear-gradient(to right, #000000, #272727);
-  min-height: 100vh;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.admin__buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.admin__button {
-  margin: 10px;
-  width: 200px;
-  padding: 15px 30px;
-  text-align: center;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  border-radius: 2px;
-  display: block;
-  border: 0px;
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: 0px 0px 14px -7px #f09819;
-  background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.admin__button:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-}
-
-.admin__button:active {
-  transform: scale(0.95);
 }
 
 @keyframes loader {
