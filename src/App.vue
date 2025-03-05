@@ -49,6 +49,8 @@ async function checkOrRegisterUser(user) {
 }
 
 provide("user", user)
+provide("isOwner", isOwner)
+provide("isLoaded", isLoaded)
 </script>
 
 <template>

@@ -1,5 +1,9 @@
 <script setup>
 import Particles from '../components/Particles.vue';
+import { inject } from 'vue';
+
+const isOwner = inject("isOwner");
+const isLoaded = inject("isLoaded")
 </script>
 
 <template>
@@ -9,7 +13,7 @@ import Particles from '../components/Particles.vue';
             <h1 class="admin__form-title">Login As</h1>
             <div class="admin__form-buttons">
                 <button class="admin__form-button">Admin</button>
-                <button class="admin__form-button">User</button>
+                <button class="admin__form-button" v-on:click="isOwner.value = false">User</button>
             </div>
         </div>
     </div>
