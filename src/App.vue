@@ -78,9 +78,7 @@ provide("user", user)
 
 <style scoped>
 .loading {
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #000000, #272727);
-  background: linear-gradient(to right, #000000, #272727);
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -100,7 +98,7 @@ provide("user", user)
   mask: var(--_m);
   -webkit-mask-composite: source-out;
   mask-composite: subtract;
-  animation: l3 1s infinite linear;
+  animation: loader 1s infinite linear;
 }
 
 .admin {
@@ -118,7 +116,6 @@ provide("user", user)
 .admin__buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   justify-content: center;
   align-items: center;
 }
@@ -155,7 +152,7 @@ provide("user", user)
   transform: scale(0.95);
 }
 
-@keyframes l3 {
+@keyframes loader {
   to {
     transform: rotate(1turn)
   }
