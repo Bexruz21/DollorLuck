@@ -24,7 +24,7 @@ const particlesLoaded = async container => {
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: 'push'
           },
           onHover: {
@@ -41,7 +41,7 @@ const particlesLoaded = async container => {
             size: 40
           },
           push: {
-            quantity: 4
+            quantity: 6
           },
           repulse: {
             distance: 200,
