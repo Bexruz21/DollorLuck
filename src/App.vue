@@ -2,6 +2,8 @@
 import { onMounted, ref, provide } from 'vue';
 import AdminView from './views/AdminView.vue';
 import Footer from './components/Footer.vue';
+import ReferralView from './views/ReferralView.vue';
+import WalletView from './views/WalletView.vue';
 
 const user = ref(null);
 const ref_code = ref(null)
@@ -54,22 +56,67 @@ provide("isLoaded", isLoaded)
 </script>
 
 <template>
-  <template v-if="isLoaded">
+  <div class="container">
+    <div class="container-layout">
+      <WalletView/>
+      <!-- <ReferralView/> -->
+      <div class="footer">
+        <i class="fa-solid fa-ticket"></i>
+        <i class="fa-solid fa-people-group"></i>
+        <i class="fa-solid fa-wallet"></i>
+        <i class="fa-solid fa-user"></i>
+      </div>
+    </div>
+  </div>
+  <!-- <template v-if="isLoaded">
     <AdminView v-if="isOwner" />
     <template v-else>
       <RouterView />
       <Footer />
     </template>
-  </template>
-  <template v-else>
+</template>
+<template v-else>
     <div class="loading">
       <div class="loader"></div>
     </div>
-  </template>
+  </template> -->
 </template>
 
 
 <style scoped>
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #171417;
+  padding: 20px;
+  overflow: hidden;
+}
+.container-layout {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.footer {
+  width: 100%;
+  padding: 0px 20px;
+  background-color: #26212e;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.fa-solid {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.fa-solid:hover {
+  color: #06e794;
+}
+
 .loading {
   background-color: #000000;
   min-height: 100vh;
